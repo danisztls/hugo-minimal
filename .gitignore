@@ -1,0 +1,7 @@
+# Hugo
+.hugo_build.lock
+public/*
+resources/
+
+# Local 
+DEV.md
