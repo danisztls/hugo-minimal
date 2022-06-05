@@ -1,0 +1,109 @@
+// Main
+html {
+  visibility: visible !important;
+  font-size: var(--font-size);
+  font-family: var(--body-font);
+  color: var(--body-fg);
+  background: var(--body-bg);
+}
+
+body {
+  margin: 0;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+}
+
+h1 { font-size: 3em; }
+h2 { font-size: 1.7em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.3em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1.1em; }
+
+// Content spacing
+.content {
+  h1, h2, h3, h4, h5, h6 {
+    margin-block-start: .8em;
+    margin-block-end: .6em;
+  }
+
+  p {
+    margin-block-start: 0;
+    margin-block-end: 1.15em;
+  }
+
+  li > p {
+    margin-block-end: .5em;
+  }
+
+  li:last-child p {
+    margin-block-end: 0em;
+  }
+
+  ul {
+    margin-block-start: 0em;
+    margin-block-end: 2em;
+  }
+}
+
+// Rich text
+b, strong {
+  color: var(--icon-color); 
+}
+
+em {
+  color: var(--accent-color); 
+
+  strong {
+    color: var(--accent-color); 
+  }
+}
+
+blockquote {
+  font-style: italic;
+  color: var(--muted-color);
+  margin-inline-start: 20px;
+  padding-left: 20px;
+  border-left: 4px solid var(--accent-color);
+}
+
+// Links
+a {
+  color: var(--link-color); 
+  text-decoration: none;
+  transition: color, background 200ms ease-in-out;
+
+  &:hover {
+    color: var(--link-hover-color); 
+    text-decoration: underline;
+  }
+}
+
+// Buttons
+button {
+  font-size: 1em;
+  background: unset;
+  border: unset;
+  border-style: none;
+
+  // &:hover {
+  // }
+
+  // &:active {
+  // }
+}
+
+// FontAwesome icons
+svg.icon {
+  width: 1em;
+  height: 1em;
+  fill: var(--icon-color); 
+
+  &:hover {
+    fill: var(--icon-hover-color); 
+    text-decoration: none;
+  }
+}

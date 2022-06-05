@@ -1,0 +1,42 @@
+#header {
+  height: var(--header-height);
+}
+
+main {
+  display: grid;
+  grid: "content sidebar" auto / 50vw 200px;
+  justify-content: space-around;
+  margin: 0;
+
+  #content {
+    grid-area: content;
+
+    .meta {
+      text-align: center;
+    }
+  }
+  
+  #sidebar {
+    grid-area: sidebar;
+    margin: var(--sidebar-gap-top) 0 0 0;
+  }
+  
+  // hide footer from initial view on shorter pages
+  min-height: calc(100vh - var(--header-height) - 6rem);
+}
+
+#footer {
+  margin: 6rem 0 .5rem 0;
+}
+
+@media(max-width: 1025px) {
+  main {
+    grid: "content" auto / 85vw;
+    justify-content: center;
+
+    aside#sidebar {
+      display: none;
+    }
+  }
+}
+

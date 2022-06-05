@@ -1,0 +1,18 @@
+<footer id="footer">
+  <!-- TODO: Insert sitemap -->
+
+  <div class="social">
+    {{ range where .Site.Params.social "url" "!=" nil }}
+      <a
+        alt="{{ .name }}"
+        {{ with .description }}title="{{ . }}"{{ end }}
+        href="{{ .url | safeURL }}"
+        target="_blank"
+      >
+        {{ partial "lib/icon.html" .icon }}
+      </a>
+    {{ end }}
+  </div>
+  
+  <p class="copyright"><small>{{ .Site.Copyright }}</small></p>
+</footer>

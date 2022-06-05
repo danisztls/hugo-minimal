@@ -1,0 +1,26 @@
+html {
+  --header-height: 80px;
+  --sidebar-gap-top: 2rem;
+
+  --font-size: 1.3em;
+  --heading-font: serif;
+  --body-font: serif;
+
+  --body-fg: black;
+  --body-bg: hsl(200, 50%, 99%);
+
+  --header-fg: black;
+  --header-bg: hsl(200, 50%, 99%);
+
+  --link-color: hsl(205, 55%, 40%);
+  --link-hover-color: hsl(205, 60%, 50%);
+
+  --icon-color: hsl(0, 57%, 50%);
+  --icon-hover-color: hsl(0, 67%, 55%);
+
+  --accent-color: hsl(145, 40%, 35%);
+  --muted-color: hsl(0, 0%, 40%);
+}
+
+// html[data-theme="dark"] {
+// }

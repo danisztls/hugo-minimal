@@ -1,0 +1,11 @@
+{{ $size := "" }}
+{{ with .Get "size" }}{{ $size = printf "font-size: %s;" . }}{{ end }}
+
+{{ $style := print $size }}
+
+<details>
+  <summary {{ with $style }}style="{{ . | safeCSS }}"{{ end }}>
+    {{ .Get "title" }}
+  </summary>
+  {{ .Inner | markdownify }}
+</details>

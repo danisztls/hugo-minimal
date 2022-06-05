@@ -1,0 +1,27 @@
+{{ $options := "" }}
+
+{{ if eq (hugo.Environment) "development" }}
+  {{ $options = dict "enableSourceMap" true }}
+{{ else }}
+  {{ $options = dict "outputStyle" "compressed" }}
+{{ end -}}
+
+{{ $main := resources.Get "scss/main.scss" | toCSS $options }}
+{{ $print := resources.Get "scss/print.scss" | toCSS $options }}
+
+<!-- Async Load -->
+<link rel="preload" href="{{ $main.Permalink }}" as="style" media="screen" onload="this.onload=null;this.rel='stylesheet'">
+
+<!-- Google Fonts -->
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+<!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+<!-- <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700&family=Source+Sans+3:wght@200;400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+
+<!-- NoJS Fallback -->
+<noscript>
+  <link rel="stylesheet" href="{{ $main.Permalink }}">
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;700&family=Source+Sans+3:wght@200;400;700&display=swap"> -->
+</noscript>
+
+<!-- Printing -->
+<link href="{{ $print.Permalink }}" media="print" rel="stylesheet">

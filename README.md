@@ -1,4 +1,4 @@
-This is a minimal but not bare template for quickly deploying Hugo projects from scratch. Cloning this is is better than `hugo new site <dir>`.
+This is a minimal but not bare template for quickly deploying Hugo projects from scratch. Cloning this is is better than running `hugo new site <dir>`.
 
 It include a few batteries:
 

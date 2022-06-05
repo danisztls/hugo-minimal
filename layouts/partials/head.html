@@ -1,0 +1,21 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  {{ if .Title }}
+    <title>{{ .Site.Title }} | {{ .Title }}</title>
+  {{ else }}
+    <title>{{ .Site.Title }}</title>
+  {{ end }}
+
+  {{ with .Site.Params.description }}<meta name="description" content="{{ . }}"/>{{ end }}
+  <link rel="canonical" href="{{ .Permalink }}"/>
+ 
+  {{ partial "head/scripts.html" . }}
+  {{ partial "head/stylesheet.html" . }}
+  {{ partial "head/favicons.html" . }}
+  {{ partial "head/opengraph.html" . }}
+
+  <!-- Preload Sprites -->
+  <link rel="preload" href="{{ "/svg/fontawesome.svg" | relURL }}" as="fetch">
+</head>

@@ -1,0 +1,27 @@
+{{ define "main" }}
+  <main id="main" class="single">
+    <article>
+      <header>
+        <h1>{{ .Title }}</h1>
+        <!-- <address></address> -->
+      </header>
+      
+      {{ if eq .Params.TOC true }}
+        <div class="toc">
+          <p>Table of Contents</p>
+          {{ .TableOfContents }}
+        </div>
+      {{ end }}
+
+      {{ with .Content }}
+        <div class="content">
+          {{ . }}
+        </div>
+      {{ else }}
+        {{ warnf "Page %s is empty." .File }}
+      {{ end }}
+    </article>
+
+    {{- partial "sidebar.html" . -}}
+  </main>
+{{ end }}

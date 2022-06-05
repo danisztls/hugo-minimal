@@ -1,0 +1,13 @@
+{{ $main := resources.Get "js/main.js" }}
+{{ $logo := resources.Get "js/logo-switch-on-scroll.js" }}
+
+{{ $main := slice $main $logo | resources.Concat "js/main.js" }}
+
+{{ if eq (hugo.Environment) "development" }}
+  {{ $main = $main | js.Build (dict "sourceMap" "inline" "logLevel" "info") }}
+{{ else }}
+  {{ $main = $main | js.Build (dict "minify" "true") }}
+{{ end }}
+
+<!-- Async Load Main JS -->
+<script src="{{ $main.Permalink }}" async></script>
