@@ -5,3 +5,8 @@ assets/jsconfig.json
 
 # YAML
 # .github/
+
+# Artifacts
+public/
+resources/
+node_modules/
