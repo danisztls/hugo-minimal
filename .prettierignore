@@ -1,7 +1,15 @@
-# JSON
+# Hugo 
+public/
+resources/
 layouts/*.json
-package-lock.json
 assets/jsconfig.json
 
-# YAML
-# .github/
+# Node
+package-lock.json
+node_modules/
+
+# Workflows 
+.github/
+
+# Prettier
+.prettiercache
