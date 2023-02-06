@@ -24,4 +24,4 @@ jobs:
         with:
           prettier_plugins: prettier-plugin-go-template
           prettier_options: --write **/*.{js,css,scss,html,json,yml,md}
-          only_changed: True
+          only_changed: True  
