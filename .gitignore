@@ -5,3 +5,6 @@ resources/
 
 # Local 
 DEV.md
+
+# NPM
+node_modules

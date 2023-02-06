@@ -1,0 +1,7 @@
+# JSON
+layouts/*.json
+package-lock.json
+assets/jsconfig.json
+
+# YAML
+# .github/
