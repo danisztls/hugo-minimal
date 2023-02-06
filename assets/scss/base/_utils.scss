@@ -2,7 +2,7 @@
 @function repeat($val, $num: 1) {
   $out: "";
   @for $_ from 1 through $num {
-    $out:#{$out $val};
+    $out: #{$out $val};
   }
   @return $out;
 }
@@ -40,9 +40,6 @@
   }
 }
 
-
-
 @mixin pseudo-bold {
   -webkit-text-stroke-width: 1px;
 }
-

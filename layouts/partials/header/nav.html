@@ -1,27 +1,50 @@
 <nav id="nav" aria-label="Navigation" aria-expanded="false">
-  <button id="nav-control" class="control" aria-controls="nav" >
+  <button id="nav-control" class="control" aria-controls="nav">
     <span class="expand">{{ partial "lib/icon.html" "bars" }}</span>
     <span class="collapse">{{ partial "lib/icon.html" "xmark" }}</span>
   </button>
 
   <ul id="nav-menu" class="menu">
     {{ $currentPage := . }}
-    
+
     {{ range $index, $element := .Site.Menus.main }}
       {{- $active := or ($currentPage.IsMenuCurrent "main" .) (eq $currentPage.Section .Identifier) }}
 
-      <li id="{{ .Identifier }}" aria-current="{{ if $active }}true{{ else }}false{{ end }}">
+
+      <li
+        id="{{ .Identifier }}"
+        aria-current="{{ if $active }}
+          true
+        {{ else }}
+          false
+        {{ end }}"
+      >
         {{ if not .HasChildren }}
           <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
-
         {{ else }}
           {{ .Page.Title }}
 
-          <ul class="submenu" aria-expanded="{{ if $active }}true{{ else }}false{{ end }}">
+
+          <ul
+            class="submenu"
+            aria-expanded="{{ if $active }}
+              true
+            {{ else }}
+              false
+            {{ end }}"
+          >
             {{ range .Children }}
               {{- $active := or ($currentPage.IsMenuCurrent "main" .) (eq $currentPage.Section .Identifier) }}
 
-              <li id="{{ .Identifier }}" aria-current="{{ if $active }}true{{ else }}false{{ end }}">
+
+              <li
+                id="{{ .Identifier }}"
+                aria-current="{{ if $active }}
+                  true
+                {{ else }}
+                  false
+                {{ end }}"
+              >
                 <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
               </li>
             {{ end -}}

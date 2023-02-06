@@ -3,6 +3,7 @@
 
 {{ $style := print $size }}
 
+
 <details>
   <summary {{ with $style }}style="{{ . | safeCSS }}"{{ end }}>
     {{ .Get "title" }}

@@ -9,10 +9,10 @@
 {{ if (reflect.IsMap .) }}
   {{ $href = printf "%s#%s" $file .name }}
   {{ $class = printf "%s %s" $class .class }}
-
 {{ else }}
   {{ $href = print $file "#" . }}
 {{ end -}}
+
 
 <svg class="{{ $class }}">
   <use xlink:href="{{ $href | relURL }}"></use>

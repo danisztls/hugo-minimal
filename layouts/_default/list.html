@@ -1,5 +1,6 @@
 {{ define "main" }}
-  <main id="main" class="list"><article>
+  <main id="main" class="list">
+    <article>
       <header>
         <h1>{{ .Title }}</h1>
       </header>
@@ -12,7 +13,7 @@
         {{ end }}
       </ul>
     </article>
-    
+
     {{- partial "sidebar.html" . -}}
   </main>
 {{ end }}
