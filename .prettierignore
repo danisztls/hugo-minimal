@@ -1,12 +1,12 @@
-# JSON
-layouts/*.json
-package-lock.json
-assets/jsconfig.json
-
-# YAML
-# .github/
-
-# Artifacts
+# Hugo 
 public/
 resources/
+layouts/*.json
+assets/jsconfig.json
+
+# Node
+package-lock.json
 node_modules/
+
+# Workflows 
+.github/
