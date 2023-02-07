@@ -38,7 +38,7 @@ jobs:
 
       - name: Push changes
         run: |
-          if git diff-index HEAD --; then
+          if git diff-index --quiet HEAD; then
             echo "No changes to commit"
           else
             echo "Commiting changes"
