@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
@@ -24,19 +24,19 @@ jobs:
           node-version: 'latest'
           cache: 'yarn'
 
-      - name: Install Node Packages
+      - name: Install packages
         run: yarn install --frozen-lockfile
 
-      - name: Restore Prettier Cache
+      - name: Prettier cache
         uses: actions/cache@v3
         with:
           path: .prettiercache
           key: ${{ runner.os }}-prettier
 
-      - name: Format Code
+      - name: Format code
         run: yarn run format
 
-      - name: Commit & Push Changes
+      - name: Push changes
         run: |
           if git diff-index HEAD --; then
             echo "No changes to commit"
