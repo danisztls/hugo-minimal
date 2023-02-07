@@ -31,7 +31,10 @@ jobs:
         run: |
           if ! git diff-index HEAD --quiet --; then
             echo "Commiting changes"
-            git commit --all --message "Format with Prettier" --author "github-actions <github-actions@github.com>"
+            git config user.email "github-actions[bot]"
+            git config user.name "github-actions[bot]@users.noreply.github.com"
+            git commit --all --message "Format with Prettier" \
+            --author ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
             git push
           else
             echo "No changes to commit"
