@@ -1,0 +1,18 @@
+{{ with .Page.Resources.GetMatch .Destination }}
+  {{ $thumb := .Resize "900x webp q75" }}
+  {{ $full := .Resize "3840x webp q90" }}
+
+  <figure class="lightbox">
+    <div class="lightbox--control">
+      <img alt="Thumbnail" src="{{ $thumb.Permalink }}" loading="lazy" />
+    </div>
+
+    <div class="lightbox--modal" hidden>
+      <img alt="Full image" src="{{ $full.Permalink }}" loading="lazy" />
+    </div>
+
+    <figcaption>{{ $.Text | safeHTML }}</figcaption>
+  </figure>
+{{ else }}
+  {{ warnf "%s: missing resource \"%s\"" $.Page.File.Path $.Destination }}
+{{ end }}

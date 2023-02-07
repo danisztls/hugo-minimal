@@ -1,0 +1,105 @@
+.lightbox--modal,
+.lightbox--control {
+  position: relative;
+  cursor: pointer;
+
+  img {
+    object-fit: contain;
+    border-radius: 2px;
+  }
+
+  &:after {
+    // TODO: Implement FontAwesome Free 
+    content: "";
+    font-size: 3rem;
+  }
+}
+
+.lightbox--control {
+  display: grid;
+  grid: "overlay" auto / auto;
+  box-shadow: 5px 7px 20px rgba(0, 0, 0, 0.5);
+
+  &:after,
+  img {
+    grid-area: overlay;
+  }
+
+  &:after {
+    content: "";
+    z-index: 2;
+    place-self: center center;
+    color: var(--muted-color);
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.75));
+  }
+
+  img {
+    z-index: 1;
+    grid-area: overlay;
+    width: 100%;
+  }
+
+  &:hover {
+    box-shadow: 5px 7px 20px rgba(0, 0, 0, 0.7);
+
+    &:after {
+      color: var(--link-color);
+    }
+
+    img {
+      filter: brightness(0.75);
+    }
+  }
+}
+
+.lightbox--modal {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsla(0, 0%, 30%, 0.7);
+
+  &[hidden] {
+    visibility: collapse;
+  }
+
+  &:after {
+    // xmark-large
+    content: "\e59b";
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    color: white;
+  }
+
+  &:hover:after {
+    color: var(--link-color);
+  }
+
+  img {
+    max-width: 90%;
+    max-height: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .lightbox--modal,
+  .lightbox--control {
+    &:after {
+      font-size: 2rem;
+    }
+  }
+
+  .lightbox--modal {
+    &:after {
+      top: 2rem;
+      right: 2rem;
+    }
+  }
+}
+
