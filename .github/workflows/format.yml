@@ -20,14 +20,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 'latest'
-          cache: 'npm'
+          cache: 'yarn'
       
       - name: Install Node Packages
-        # run: npm ci
-        run: npm install
+        run: yarn install --frozen-lockfile
 
       - name: Format Code
-        run: npm run format
+        run: yarn run format
 
       - name: Commit & Push Changes
         run: |
