@@ -1,5 +1,5 @@
 ---
-title: Gallery 
+title: Gallery
 description: Image Gallery
 menu:
   main:
