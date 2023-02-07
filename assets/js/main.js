@@ -11,4 +11,3 @@ function DOMReadyHandler() {
   lightbox()
   logoSwitchOnScroll()
 }
-

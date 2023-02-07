@@ -1,5 +1,5 @@
 /**
- * @name     logoSwitchOnScroll 
+ * @name     logoSwitchOnScroll
  * @desc     Alternate logos visibility based on scroll position.
  * @author   Daniel Souza <me at posix dot dev dot br>
  */

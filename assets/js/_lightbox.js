@@ -42,4 +42,3 @@ export default function lightbox() {
     control.addEventListener("click", toggler)
   })
 }
-

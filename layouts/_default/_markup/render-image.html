@@ -2,6 +2,7 @@
   {{ $thumb := .Resize "900x webp q75" }}
   {{ $full := .Resize "3840x webp q90" }}
 
+
   <figure class="lightbox">
     <div class="lightbox--control">
       <img alt="Thumbnail" src="{{ $thumb.Permalink }}" loading="lazy" />
