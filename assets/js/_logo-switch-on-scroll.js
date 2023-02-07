@@ -1,5 +1,10 @@
-/* Alternate logos visibility based on scroll position. */
-function logoSwitchOnScroll() {
+/**
+ * @name     logoSwitchOnScroll 
+ * @desc     Alternate logos visibility based on scroll position.
+ * @author   Daniel Souza <me at posix dot dev dot br>
+ */
+
+export default function logoSwitchOnScroll() {
   const logo = document.getElementById("logo")
   const imgBig = logo.querySelector("img.big")
   const imgSmall = logo.querySelector("img.small")
@@ -30,5 +35,3 @@ function logoSwitchOnScroll() {
 
   document.addEventListener("scroll", scrollHandler, { passive: true })
 }
-
-logoSwitchOnScroll()
