@@ -8,3 +8,6 @@ DEV.md
 
 # NPM
 node_modules
+
+# Prettier
+.prettiercache
