@@ -26,8 +26,6 @@ jobs:
       - name: Format Code
         run: npm run format
 
-      # - uses: actions/checkout@v3
-
       - name: Commit & Push Changes
         run: |
           git config user.name github-actions
