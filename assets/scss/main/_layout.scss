@@ -15,21 +15,21 @@ main {
       text-align: center;
     }
   }
-  
+
   #sidebar {
     grid-area: sidebar;
     margin: var(--sidebar-gap-top) 0 0 0;
   }
-  
+
   // hide footer from initial view on shorter pages
   min-height: calc(100vh - var(--header-height) - 6rem);
 }
 
 #footer {
-  margin: 6rem 0 .5rem 0;
+  margin: 6rem 0 0.5rem 0;
 }
 
-@media(max-width: 1025px) {
+@media (max-width: 1025px) {
   main {
     grid: "content" auto / 85vw;
     justify-content: center;
@@ -39,4 +39,3 @@ main {
     }
   }
 }
-

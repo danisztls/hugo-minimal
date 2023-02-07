@@ -5,7 +5,7 @@ function logoSwitchOnScroll() {
   const imgSmall = logo.querySelector("img.small")
 
   function showBig() {
-    imgBig.hidden = false 
+    imgBig.hidden = false
     imgBig.style.visibility = "visible"
     imgSmall.hidden = true
     imgSmall.style.visibility = "hidden"
@@ -19,17 +19,16 @@ function logoSwitchOnScroll() {
   }
 
   function scrollHandler() {
-    const isPageScrolled = (window.scrollY > 0) ? true : false
+    const isPageScrolled = window.scrollY > 0 ? true : false
 
     if (isPageScrolled) {
       showSmall()
-    
     } else {
       showBig()
     }
   }
 
-  document.addEventListener('scroll', scrollHandler, {passive: true})
+  document.addEventListener("scroll", scrollHandler, { passive: true })
 }
 
 logoSwitchOnScroll()
