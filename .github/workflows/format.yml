@@ -20,8 +20,18 @@ jobs:
           node-version: 'latest'
           cache: 'npm'
       
-      - name: Install Node packages
+      - name: Install Node Packages
         run: npm ci 
 
-      - name: Run code formatter
+      - name: Format Code
         run: npm run format
+
+      - uses: actions/checkout@v3
+
+      - name: Commit & Push Changes
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "Format with Prettier"
+          git push
