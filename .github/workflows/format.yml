@@ -21,15 +21,18 @@ jobs:
           cache: 'npm'
       
       - name: Install Node Packages
-        run: npm ci 
+        # run: npm ci
+        run: npm install
 
       - name: Format Code
         run: npm run format
 
       - name: Commit & Push Changes
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "Format with Prettier"
-          git push
+          if ! git diff-index HEAD --quiet --; then
+            echo "Commiting changes"
+            git commit --all --message "Format with Prettier" --author github-actions <github-actions@github.com> &&
+            git push
+          else
+            echo "No changes to commit"
+          fi
