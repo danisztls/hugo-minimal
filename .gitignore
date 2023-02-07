@@ -1,10 +1,8 @@
 # Hugo
+/resources/
+/assets/jsconfig.json
+/public/
 .hugo_build.lock
-public/*
-resources/
-
-# Local 
-DEV.md
 
 # NPM
 node_modules
