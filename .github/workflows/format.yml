@@ -1,0 +1,27 @@
+name: Format Code
+
+on:
+  push:
+    branches:
+      - main 
+  pull_request:
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 'latest'
+          cache: 'yarn'
+      
+      - name: Install Node packages
+        run: npm ci 
+
+      - name: Run code formatter
+        run: npm run format
