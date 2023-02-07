@@ -13,17 +13,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
 
-      - uses: actions/setup-node@v3
+      - namee: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: 'latest'
           cache: 'yarn'
-      
+
       - name: Install Node Packages
         run: yarn install --frozen-lockfile
+
+      - name: Restore Prettier Cache
+        uses: actions/cache@v3
+        with:
+          path: .prettiercache
+          key: ${{ runner.os }}-prettier
 
       - name: Format Code
         run: yarn run format
