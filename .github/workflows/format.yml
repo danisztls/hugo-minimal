@@ -31,7 +31,7 @@ jobs:
         run: |
           if ! git diff-index HEAD --quiet --; then
             echo "Commiting changes"
-            git commit --all --message "Format with Prettier" --author github-actions <github-actions@github.com> &&
+            git commit --all --message "Format with Prettier" --author "github-actions <github-actions@github.com>"
             git push
           else
             echo "No changes to commit"
