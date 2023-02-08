@@ -46,7 +46,7 @@ jobs:
           key: ${{ runner.os }}-hugo
 
       - name: Build site
-        run: ./hugo --environment production --cacheDir "${GITHUB_WORKSPACE}/hugo_cache"
+        run: ./hugo --environment production --gc --cacheDir "${GITHUB_WORKSPACE}/hugo_cache"
 
       # - name: Deploy
       #   uses: peaceiris/actions-gh-pages@v3
