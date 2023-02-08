@@ -17,3 +17,24 @@ params:
       description: "Project page on GitHub"
       url: "https://github.com"
       icon: github
+
+# 1year=8760h
+caches:
+  assets:
+    dir: :resourceDir/_gen
+    maxAge: 8760h
+  getcsv:
+    dir: :cacheDir/:project
+    maxAge: 8760h
+  getjson:
+    dir: :cacheDir/:project
+    maxAge: 8760h
+  getresource:
+    dir: :cacheDir/:project
+    maxAge: 8760h
+  images:
+    dir: :resourceDir/_gen
+    maxAge: 8760h
+  modules:
+    dir: :cacheDir/modules
+    maxAge: 8760h
