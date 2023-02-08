@@ -1,5 +1,5 @@
 ---
-# baseURL: ""
+baseURL: ""
 
 minify:
   minifyOutput: false

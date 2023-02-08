@@ -1,6 +1,4 @@
 ---
-baseURL: ""
-
 canonifyURLs: true
 enableGitInfo: true
 enableRobotsTXT: true

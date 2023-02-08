@@ -1,5 +1,5 @@
 ---
-# baseURL: ""
+baseURL: "https://danisztls.github.io/hugo-minimal/"
 
 minify:
   minifyOutput: true
