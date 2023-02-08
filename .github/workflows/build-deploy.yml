@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@main
         # with:
         #   submodules: true
         #   fetch-depth: 0 # For .GitInfo and .Lastmod
@@ -23,7 +23,7 @@ jobs:
           tar -xvf "hugo_extended_${_version}_linux-amd64.tar.gz"
 
       - name: Hugo cache
-        uses: actions/cache@v3
+        uses: actions/cache@main
         with:
           path: |
             resources/
@@ -34,7 +34,7 @@ jobs:
         run: ./hugo --environment production --gc --cacheDir "${GITHUB_WORKSPACE}/hugo_cache"
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@main
         with:
           path: public/
           # name: github-pages
@@ -55,4 +55,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@main
