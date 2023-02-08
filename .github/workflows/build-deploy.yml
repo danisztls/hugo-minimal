@@ -1,0 +1,80 @@
+name: Build & Deploy Site
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        # with:
+        #   submodules: true
+        #   fetch-depth: 0 # For .GitInfo and .Lastmod
+
+      # - name: Setup Node
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 'latest'
+      #     cache: 'yarn'
+
+      # - name: Install packages
+      #   run: yarn install --frozen-lockfile
+
+      # - name: Setup Hugo
+      #   uses: peaceiris/actions-hugo@v2
+      #   with:
+      #     hugo-version: "latest"
+      #     extended: true
+
+      - name: Setup Hugo
+        run: |
+          _version=0.110.0
+          wget "https://github.com/gohugoio/hugo/releases/download/v${_version}/hugo_extended_${_version}_linux-amd64.tar.gz"
+          tar -xvf "hugo_extended_${_version}_linux-amd64.tar.gz"
+
+      - name: Hugo cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            resources/
+            hugo_cache/
+          key: ${{ runner.os }}-hugo
+
+      - name: Build site
+        run: ./hugo --environment production --cacheDir "${GITHUB_WORKSPACE}/hugo_cache"
+
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   if: github.ref == 'refs/heads/main'
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./public
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: public/
+          # name: github-pages
+          # retention-days: 1
+
+  deploy:
+    needs: build
+
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1

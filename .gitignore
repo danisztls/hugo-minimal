@@ -1,7 +1,8 @@
 # Hugo
-/resources/
+/resources
+/hugo_cache
 /assets/jsconfig.json
-/public/
+/public
 .hugo_build.lock
 
 # NPM
