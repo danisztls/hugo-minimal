@@ -6,6 +6,6 @@
     "prettier-plugin-go-template": "^0.0.13"
   },
   "scripts": {
-    "format": "prettier *** --write --cache --cache-location .prettiercache --ignore-unknown --no-error-on-unmatched-pattern"
+    "format": "prettier ./** --write --cache --cache-location .prettiercache --ignore-unknown --no-error-on-unmatched-pattern"
   }
 }
