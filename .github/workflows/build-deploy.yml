@@ -18,7 +18,13 @@ jobs:
 
       - name: Setup Hugo
         run: |
-          _version=0.110.0
+          # _version=0.110.0
+          _version=latest
+
+          if [ $_version == "latest" ]; then
+            _version=$(curl --silent "https://api.github.com/repos/gohugoio/hugo/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+          fi
+
           wget "https://github.com/gohugoio/hugo/releases/download/v${_version}/hugo_extended_${_version}_linux-amd64.tar.gz"
           tar -xvf "hugo_extended_${_version}_linux-amd64.tar.gz"
 
